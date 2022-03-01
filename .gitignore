@@ -3,3 +3,4 @@ venv
 site.db
 .DS_STORE
 .flaskenv
+app.db
