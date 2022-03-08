@@ -6,9 +6,6 @@ from app.models import User, Post
 def make_shell_context():
     return {'db': db, 'User': User, 'Post': Post}
 
-if __name__ == '__main__':
-    app.run(debug=app.config['DEBUG'])
-
 # To run the app, add this in the terminal so flask knows 
 # what file to run so it can start this application
 # export FLASK_APP=microblog.py
