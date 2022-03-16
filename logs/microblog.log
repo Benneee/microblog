@@ -1,12 +1,10 @@
-2022-03-09 19:39:58,504 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-09 19:40:22,141 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-09 20:13:17,501 ERROR: Exception on /edit_profile [POST] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+2022-03-16 15:40:12,150 ERROR: Exception on /user/sola [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1802, in _execute_context
     self.dialect.do_execute(
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+sqlite3.OperationalError: no such column: followers.followed_id
 
 The above exception was the direct cause of the following exception:
 
@@ -21,33 +19,34 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/mac/Desktop/Projects/microblog/app/routes.py", line 82, in edit_profile
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1431, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 829, in commit
-    self._prepare_impl()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
-    self.session.flush()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3363, in flush
-    self._flush(objects)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3503, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
-    raise exception
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3463, in _flush
-    flush_context.execute()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 456, in execute
-    rec.execute(self)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
-    _emit_update_statements(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1000, in _emit_update_statements
-    c = connection._execute_20(
+  File "/Users/mac/Desktop/Projects/microblog/app/routes.py", line 74, in user
+    return render_template('user.html', user=user, posts=posts, form=form)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
+    return _render(
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
+    rv = template.render(context)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/mac/Desktop/Projects/microblog/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/mac/Desktop/Projects/microblog/app/templates/base.html", line 37, in top-level template code
+    {% block content %}
+  File "/Users/mac/Desktop/Projects/microblog/app/templates/user.html", line 12, in block 'content'
+    <p> {{ user.followers.count() }} followers, {{ user.followed.count() }} following</p>
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/dynamic.py", line 373, in count
+    return self._generate(sess).count()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 3145, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2879, in scalar
+    ret = self.one()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2856, in one
+    return self._iter().one()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2894, in _iter
+    result = self.session.execute(
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1692, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1614, in _execute_20
     return meth(self, args_10style, kwargs_10style, execution_options)
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 325, in _execute_on_connection
@@ -64,16 +63,23 @@ Traceback (most recent call last):
     self.dialect.do_execute(
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('bola', '', 3)]
-(Background on this error at: https://sqlalche.me/e/14/gkpj)
-2022-03-10 22:25:30,222 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-10 22:25:38,270 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-10 22:26:00,865 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-10 22:27:43,565 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-10 22:27:46,997 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 14:36:12,286 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 14:40:12,027 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 14:42:17,153 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 14:44:09,238 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: followers.followed_id
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user, followers 
+WHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1]
+[parameters: (3,)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-03-16 15:43:59,075 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:44:17,331 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:44:28,088 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:46:17,920 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:46:52,040 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:47:08,400 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:48:14,662 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:48:28,066 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:49:03,512 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:49:21,975 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:49:47,153 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:50:00,441 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
+2022-03-16 15:50:13,749 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
