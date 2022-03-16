@@ -4,3 +4,4 @@ site.db
 .DS_STORE
 .flaskenv
 app.db
+logs
