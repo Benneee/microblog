@@ -1,5 +1,11 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale('en-gb') }}
+{% endblock scripts %}
+
 {% block title %}
     {% if title %}{{ title }} - Microblog{% else %} Welcome to Microblog {% endif %}
 {% endblock title %}
