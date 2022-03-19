@@ -14,3 +14,4 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
     ADMINS = ['ikcyprian@ymail.com']
+    LANGUAGES = ['en', 'es']
