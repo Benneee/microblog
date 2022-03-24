@@ -5,3 +5,4 @@ site.db
 .flaskenv
 app.db
 logs
+messages.pot
