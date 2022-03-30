@@ -64,3 +64,7 @@ werkzeug.routing.BuildError: Could not build url for endpoint 'index'. Did you m
 2022-03-30 21:37:52,591 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
 2022-03-30 22:01:36,850 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
 2022-03-30 22:06:03,132 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
+2022-03-30 22:34:07,435 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
+2022-03-30 22:34:16,504 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
+2022-03-30 23:07:18,147 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
+2022-03-30 23:13:44,314 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
