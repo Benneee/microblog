@@ -1,26 +1,30 @@
-2022-03-16 15:40:12,150 ERROR: Exception on /user/sola [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+2022-03-30 07:28:54,195 ERROR: Exception on /favicon.ico [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such column: followers.followed_id
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1492, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1474, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/ctx.py", line 376, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 2042, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 
-The above exception was the direct cause of the following exception:
+During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/mac/Desktop/Projects/microblog/app/routes.py", line 74, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1386, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1326, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "/Users/mac/Desktop/Projects/microblog/app/errors/handlers.py", line 8, in not_found_error
+    return render_template('errors/404.html'), 404
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
     return _render(
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
@@ -29,77 +33,26 @@ Traceback (most recent call last):
     self.environment.handle_exception()
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 925, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/mac/Desktop/Projects/microblog/app/templates/user.html", line 1, in top-level template code
+  File "/Users/mac/Desktop/Projects/microblog/app/templates/errors/404.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "/Users/mac/Desktop/Projects/microblog/app/templates/base.html", line 37, in top-level template code
-    {% block content %}
-  File "/Users/mac/Desktop/Projects/microblog/app/templates/user.html", line 12, in block 'content'
-    <p> {{ user.followers.count() }} followers, {{ user.followed.count() }} following</p>
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/dynamic.py", line 373, in count
-    return self._generate(sess).count()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 3145, in count
-    return self._from_self(col).enable_eagerloads(False).scalar()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2879, in scalar
-    ret = self.one()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2856, in one
-    return self._iter().one()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1692, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
-    raise exception
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: followers.followed_id
-[SQL: SELECT count(*) AS count_1 
-FROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user, followers 
-WHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1]
-[parameters: (3,)]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-2022-03-16 15:43:59,075 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:44:17,331 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:44:28,088 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:46:17,920 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:46:52,040 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:47:08,400 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:48:14,662 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:48:28,066 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:49:03,512 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:49:21,975 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:49:47,153 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:50:00,441 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-16 15:50:13,749 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:28]
-2022-03-17 08:05:44,724 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:30]
-2022-03-17 08:14:35,743 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:30]
-2022-03-24 08:45:15,857 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 08:45:27,713 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 16:01:46,670 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 16:05:45,842 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 16:07:04,055 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 16:07:43,655 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 16:08:17,747 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 16:08:53,035 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 18:16:20,083 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 18:16:31,731 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-24 18:16:56,763 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:53]
-2022-03-29 06:53:48,706 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:77]
-2022-03-29 07:02:01,775 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:77]
-2022-03-29 07:12:56,760 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:77]
-2022-03-29 12:15:54,305 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:80]
-2022-03-29 12:17:45,862 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:80]
-2022-03-29 12:18:25,599 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:80]
-2022-03-29 12:21:18,641 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:80]
+  File "/Users/mac/Desktop/Projects/microblog/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/mac/Desktop/Projects/microblog/app/templates/base.html", line 57, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/mac/Desktop/Projects/microblog/app/templates/errors/404.html", line 5, in block 'app_content'
+    <p><a href="{{ url_for('index') }}">{{ _('Back') }}</a></p>
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/helpers.py", line 338, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/helpers.py", line 325, in url_for
+    rv = url_adapter.build(
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 2315, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'index'. Did you mean 'main.index' instead?
