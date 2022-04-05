@@ -1,5 +1,5 @@
 from app import create_app, db, cli
-from app.models import User, Post, Notification, Message
+from app.models import Task, User, Post, Notification, Message
 
 app = create_app()
 cli.register(app)
@@ -12,7 +12,8 @@ def make_shell_context():
         'User': User, 
         'Post': Post,
         'Message': Message,
-        'Notification': Notification
+        'Notification': Notification,
+        'Task': Task
     }
 
 # To run the app, add this in the terminal so flask knows 
