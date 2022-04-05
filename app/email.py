@@ -15,6 +15,11 @@ def send_email(subject, sender, recipients, text_body, html_body, attachments=No
     msg.html = html_body
     if attachments:
         for attachment in attachments:
+            # attachments is a list of tuples containing all 3 accepted arguments that define an attachment
+            # - the filename
+            # - the media type
+            # - the actual file data
+            # *arg spreads arguments that are either lists or tuples for the method the argument is being passed tp
             msg.attach(*attachment)
     if sync:
         mail.send(msg)
