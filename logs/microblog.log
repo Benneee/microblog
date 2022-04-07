@@ -1,19 +1,4 @@
-2022-04-07 22:52:31,308 ERROR: Exception on /api/users/1 [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/mac/Desktop/Projects/microblog/app/api/users.py", line 8, in get_user
-    return jsonify(User.query.get_or_404(id).to_dict())
-  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 202, in to_dict
-    'last_seen': self.last_seen.isoformat() + 'Z',
-AttributeError: 'NoneType' object has no attribute 'isoformat'
-2022-04-07 22:58:20,765 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+2022-04-07 23:38:50,585 ERROR: Exception on /api/users/3/followers [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -23,8 +8,10 @@ Traceback (most recent call last):
     response = self.make_response(rv)
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
     raise TypeError(
-TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
-2022-04-07 23:00:18,077 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+TypeError: The view function for 'api.get_followers' did not return a valid response. The function either returned None or ended without a return statement.
+2022-04-07 23:39:26,552 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-07 23:42:24,751 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-07 23:42:29,462 ERROR: Exception on /api/users/3/followed [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,78 +21,5 @@ Traceback (most recent call last):
     response = self.make_response(rv)
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
     raise TypeError(
-TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
-2022-04-07 23:02:03,016 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
-    response = self.make_response(rv)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
-    raise TypeError(
-TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
-2022-04-07 23:03:04,164 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
-    response = self.make_response(rv)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
-    raise TypeError(
-TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
-2022-04-07 23:03:26,851 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
-2022-04-07 23:03:32,943 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
-    response = self.make_response(rv)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
-    raise TypeError(
-TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
-2022-04-07 23:05:10,190 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
-2022-04-07 23:05:19,200 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/mac/Desktop/Projects/microblog/app/api/users.py", line 14, in get_users
-    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')
-  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in to_collection_dict
-    'items': [item.to_dict() for item in resources.items],
-  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in <listcomp>
-    'items': [item.to_dict() for item in resources.items],
-  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 202, in to_dict
-    'last_seen': self.last_seen.isoformat() + 'Z',
-AttributeError: 'NoneType' object has no attribute 'isoformat'
-2022-04-07 23:05:48,106 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/mac/Desktop/Projects/microblog/app/api/users.py", line 14, in get_users
-    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')
-  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in to_collection_dict
-    'items': [item.to_dict() for item in resources.items],
-  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in <listcomp>
-    'items': [item.to_dict() for item in resources.items],
-  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 202, in to_dict
-    'last_seen': self.last_seen.isoformat() + 'Z',
-AttributeError: 'NoneType' object has no attribute 'isoformat'
-2022-04-07 23:06:57,325 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+TypeError: The view function for 'api.get_followed' did not return a valid response. The function either returned None or ended without a return statement.
+2022-04-07 23:42:50,565 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
