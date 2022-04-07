@@ -1,80 +1,111 @@
-2022-03-30 07:28:54,195 ERROR: Exception on /favicon.ico [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1492, in dispatch_request
-    self.raise_routing_exception(req)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1474, in raise_routing_exception
-    raise request.routing_exception  # type: ignore
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/ctx.py", line 376, in match_request
-    result = self.url_adapter.match(return_rule=True)  # type: ignore
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 2042, in match
-    raise NotFound()
-werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
-
-During handling of the above exception, another exception occurred:
-
+2022-04-07 22:52:31,308 ERROR: Exception on /api/users/1 [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
   File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1386, in handle_user_exception
-    return self.handle_http_exception(e)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1326, in handle_http_exception
-    return self.ensure_sync(handler)(e)
-  File "/Users/mac/Desktop/Projects/microblog/app/errors/handlers.py", line 8, in not_found_error
-    return render_template('errors/404.html'), 404
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
-    return _render(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
-    rv = template.render(context)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1291, in render
-    self.environment.handle_exception()
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Users/mac/Desktop/Projects/microblog/app/templates/errors/404.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/mac/Desktop/Projects/microblog/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
-    {% block body -%}
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
-    {% block content -%}
-  File "/Users/mac/Desktop/Projects/microblog/app/templates/base.html", line 57, in block 'content'
-    {% block app_content %}{% endblock %}
-  File "/Users/mac/Desktop/Projects/microblog/app/templates/errors/404.html", line 5, in block 'app_content'
-    <p><a href="{{ url_for('index') }}">{{ _('Back') }}</a></p>
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/helpers.py", line 338, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/helpers.py", line 325, in url_for
-    rv = url_adapter.build(
-  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 2315, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index'. Did you mean 'main.index' instead?
-2022-03-30 10:56:26,215 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 11:02:46,584 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 14:22:08,961 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 15:27:16,929 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 21:37:44,786 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 21:37:52,591 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 22:01:36,850 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 22:06:03,132 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 22:34:07,435 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 22:34:16,504 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 23:07:18,147 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-03-30 23:13:44,314 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-04-05 05:48:36,207 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-04-05 06:59:14,606 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-04-05 07:00:05,805 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-04-05 07:00:37,717 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:85]
-2022-04-06 23:51:08,977 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:90]
-2022-04-07 08:49:38,900 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:90]
-2022-04-07 08:49:51,102 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:90]
-2022-04-07 08:50:25,355 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:90]
-2022-04-07 08:50:39,926 INFO: Microblog Startup [in ./app/__init__.py:90]
-2022-04-07 08:51:00,078 INFO: Microblog Startup [in ./app/__init__.py:90]
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/mac/Desktop/Projects/microblog/app/api/users.py", line 8, in get_user
+    return jsonify(User.query.get_or_404(id).to_dict())
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 202, in to_dict
+    'last_seen': self.last_seen.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2022-04-07 22:58:20,765 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
+2022-04-07 23:00:18,077 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
+2022-04-07 23:02:03,016 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
+2022-04-07 23:03:04,164 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
+2022-04-07 23:03:26,851 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-07 23:03:32,943 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.get_users' did not return a valid response. The function either returned None or ended without a return statement.
+2022-04-07 23:05:10,190 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-07 23:05:19,200 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/mac/Desktop/Projects/microblog/app/api/users.py", line 14, in get_users
+    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in to_collection_dict
+    'items': [item.to_dict() for item in resources.items],
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in <listcomp>
+    'items': [item.to_dict() for item in resources.items],
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 202, in to_dict
+    'last_seen': self.last_seen.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2022-04-07 23:05:48,106 ERROR: Exception on /api/users [GET] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/mac/Desktop/Projects/microblog/app/api/users.py", line 14, in get_users
+    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in to_collection_dict
+    'items': [item.to_dict() for item in resources.items],
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 26, in <listcomp>
+    'items': [item.to_dict() for item in resources.items],
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 202, in to_dict
+    'last_seen': self.last_seen.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2022-04-07 23:06:57,325 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
