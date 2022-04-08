@@ -24,3 +24,24 @@ Traceback (most recent call last):
 TypeError: The view function for 'api.get_followed' did not return a valid response. The function either returned None or ended without a return statement.
 2022-04-07 23:42:50,565 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
 2022-04-08 11:46:47,589 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-08 15:40:45,180 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-08 15:40:53,500 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-08 16:45:52,008 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-08 16:47:11,554 ERROR: Exception on /api/tokens [POST] [in /Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/mac/Desktop/Projects/microblog/venv/lib/python3.9/site-packages/flask_httpauth.py", line 172, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/Users/mac/Desktop/Projects/microblog/app/api/tokens.py", line 9, in get_token
+    token = basic_auth.current_user().get_token()
+  File "/Users/mac/Desktop/Projects/microblog/app/models.py", line 233, in get_token
+    self.token = base64.b64decode(os.urandom(24)).decode('utf-8')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x97 in position 1: invalid start byte
+2022-04-08 16:48:14,044 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
