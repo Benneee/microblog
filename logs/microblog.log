@@ -23,3 +23,4 @@ Traceback (most recent call last):
     raise TypeError(
 TypeError: The view function for 'api.get_followed' did not return a valid response. The function either returned None or ended without a return statement.
 2022-04-07 23:42:50,565 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
+2022-04-08 11:46:47,589 INFO: Microblog Startup [in /Users/mac/Desktop/Projects/microblog/app/__init__.py:93]
