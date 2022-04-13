@@ -5,5 +5,4 @@ venv
 logs
 messages.pot
 .env
-migrations
 microblog.log
